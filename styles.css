@@ -1,6 +1,5 @@
 body {
     font-family: 'Raleway', sans-serif;
-    margin: 0;
     color: #FFFFFF;
     font-size:30px;
     overflow: hidden;
@@ -19,7 +18,7 @@ body {
    padding: 300px;
    display: flex;
    justify-content: space-between;
-   align-items: center;;
+   align-items: center;
   }
 
   header
