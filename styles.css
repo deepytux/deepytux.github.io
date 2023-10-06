@@ -21,12 +21,11 @@ body {
    align-items: center;
   }
 
-  header
-  {
+  
+  header {
+    padding: 100px;
+}
 
- padding: 100px;
-
-  }
   button {
     font-size: 100%;
     border-radius: 0px;
