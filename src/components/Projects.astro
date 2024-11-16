@@ -1,0 +1,49 @@
+---
+// AboutMe.astro
+interface AboutContent {
+  title: string;
+  subtitle: string;
+  description: string[];
+  imageUrl: string;
+  skills: string[];
+}
+
+const content: AboutContent = {
+  title: "About Me",
+  subtitle: "Developer & Designer",
+  description: [
+    "heyo! my name is deepy or cherry, i am a 21 year old nonbinary gal from Lima, Peru! I make hobby projects here and there or contribute with media assets for various passionate projects in the media/entertainment industry!",
+  ],
+  imageUrl: "/path/to/your-image.jpg",
+  skills: ["JavaScript", "Astro", "Node.js", "TypeScript", "UI/UX Design", "Photography", "meow?", "Languages", "Python", "C#"]
+};
+---
+<section class="py-5">
+
+
+      <!-- Content Column -->
+
+        <div class="space-y-100 mb-6">
+          {content.description.map((paragraph) => (
+            <p class="text-white-700 leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-white-900 mb-3">
+            Skills & Technologies
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            {content.skills.map((skill) => (
+              <span class="px-3 py-1 bg-gray-100 text-black rounded-full text-sm">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
