@@ -1,0 +1,124 @@
+---
+// RetroFriends.astro
+interface Friend {
+  name: string;
+  bannerUrl: string;
+  websiteUrl: string;
+  description?: string;
+}
+
+const friends: Friend[] = [
+  {
+    name: "Sapphic System",
+    bannerUrl: "https://sapphic.moe/buttons/friends/sapphic/image.png",
+    websiteUrl: "https://coolwebsite.com",
+    description: "My friend's awesome retro gaming site"
+  },
+  {
+    name: "Espi!!",
+    bannerUrl: "https://sapphic.moe/buttons/friends/espi/image.png",
+    websiteUrl: "https://pixelarthub.net",
+    description: "Best pixel art community"
+  },
+  {
+    name: "Megu!",
+    bannerUrl: "https://www.espi.me/assets/images/webring/megu.png",
+    websiteUrl: "https://pixelarthub.net",
+    description: "Best pixel art community"
+  },
+  {
+    name: "coleslaw",
+    bannerUrl: "https://www.espi.me/assets/images/webring/colepaws.png",
+    websiteUrl: "https://pixelarthub.net",
+    description: "Best pixel art community"
+  },
+  {
+    name: "alula!",
+    bannerUrl: "https://www.espi.me/assets/images/webring/alula.png",
+    websiteUrl: "https://pixelarthub.net",
+    description: "Best pixel art community"
+  },
+  {
+    name: "mariomasta!",
+    bannerUrl: "https://www.espi.me/assets/images/webring/mariomasta.png",
+    websiteUrl: "https://pixelarthub.net",
+    description: "Best pixel art community"
+  },
+  {
+    name: "miaowing and purring on it",
+    bannerUrl: "https://www.espi.me/assets/images/webring/maeve.png",
+    websiteUrl: "https://pixelarthub.net",
+    description: "Best pixel art community"
+  },
+  {
+    name: "aub",
+    bannerUrl: "https://img.birb.cc/DemZ0QfN.png",
+    websiteUrl: "https://aubrey.rs",
+    description: "Best pixel art community"
+  },
+];
+
+// Optional: Randomize the order of friends
+const shuffledFriends = [...friends].sort(() => Math.random() - 0.5);
+---
+
+    <!-- Main banner container -->
+    <div class="p-4 rounded">
+      <!-- Flexbox container for banners -->
+      <div class="flex flex-wrap gap-4 justify-center items-center">
+        {shuffledFriends.map((friend) => (
+          <div class="group relative">
+            <!-- Banner wrapper with hover effect -->
+            <a
+              href={friend.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block hover:translate-y-[-2px] transition-transform duration-200"
+              title={friend.description || friend.name}
+            >
+              <!-- The 88x31 banner image -->
+              <img
+                src={friend.bannerUrl}
+                alt={`${friend.name}'s website banner`}
+                width="88"
+                height="31"
+                class="pixelated border border-[#ECAEAE]"
+                loading="lazy"
+              />
+              
+              <!-- Hover tooltip -->
+              <div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-[#ECAEAE] text-xs px-2 py-1 rounded whitespace-nowrap border border-[#ECAEAE] transition-opacity duration-200 pointer-events-none font-['Courier_New',monospace]">
+                {friend.name}
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Optional: Add your own 88x31 banner for others to use -->
+    <div class="mt-9 text-center">
+      <p class="font-['system-ui'] font-medium text-sm mb-2">
+        and me :3
+      </p>
+      <div class="inline-block p-2 rounded">
+        <img
+          src="https://i.imgur.com/PfpetAP.png"
+          alt="My website banner"
+          width="88"
+          height="31"
+          class="pixelated"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* For proper pixel art rendering */
+  .pixelated {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+</style>
